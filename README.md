@@ -1,4 +1,4 @@
-# 🍎 Apple 10-K Sentiment vs Share Price — A SAS Event Study
+# Apple 10-K Sentiment vs Share Price — A SAS Event Study
 
 > **Does the tone of Apple's annual report move its stock? A 15-year event study (2010–2024) using the Loughran-McDonald dictionary, CRSP daily returns, and IBES earnings surprises — built end-to-end in SAS.**
 

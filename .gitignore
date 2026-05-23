@@ -1,0 +1,6 @@
+.DS_Store
+*.zip
+*.sas7bdat
+*.log
+*.lst
+~$*

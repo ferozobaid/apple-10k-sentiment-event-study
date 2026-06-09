@@ -12,7 +12,7 @@
 
 ---
 
-## 📌 Overview
+##  Overview
 
 A 10-K is the most important regulatory document a public company files. Investors read it for **hard information** (earnings, segment revenue, guidance) — but the document is also full of **soft information**: the tone, hedging, and risk language management chooses to use. A long line of accounting research (Tetlock 2007, Loughran & McDonald 2011, Feldman et al. 2010) finds that negative sentiment in 10-Ks predicts abnormal returns in *aggregate samples* of thousands of firms.
 
@@ -24,7 +24,7 @@ The pipeline pulls every Apple 10-K from EDGAR, scores each one with the Loughra
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 | Property | Value |
 |---|---|
@@ -39,7 +39,7 @@ The pipeline pulls every Apple 10-K from EDGAR, scores each one with the Loughra
 
 ---
 
-## 🎯 Headline Result
+## Headline Result
 
 The main regression is `CAR[0,+3] = β₀ + β₁ · neg_pct + β₂ · surprise_pct`.
 
@@ -59,11 +59,11 @@ The **one** significant result in the project is the post-earnings-announcement 
 
 **Interpretation.** For Apple over 2010–2024, the tone of the 10-K does not move the stock — but the **hard** earnings surprise drifts into prices over the following two trading weeks. Soft information (sentiment) does not predict short-term abnormal returns once we control for the hard information that arrives at the same time.
 
-> ⚠️ **The honest caveat:** with N = 15, this is a single-firm null. It is consistent with — but cannot establish — the broader finding that sentiment matters more at the cross-section than the firm-time-series level.
+>  **The honest caveat:** with N = 15, this is a single-firm null. It is consistent with — but cannot establish — the broader finding that sentiment matters more at the cross-section than the firm-time-series level.
 
 ---
 
-## 📈 Results in Pictures
+##  Results in Pictures
 
 ### Negative sentiment vs short-window CAR
 Each point is one Apple 10-K (2010–2024). The fitted line is essentially flat — visual confirmation of the −0.020 slope coefficient.
@@ -79,7 +79,7 @@ Average CAR across all 15 filings, by trading day around the 10-K release. The 1
 
 ---
 
-## 🛠️ Methodology — The SAS Pipeline
+##  Methodology — The SAS Pipeline
 
 | Module | Purpose | Key output |
 |---|---|---|
@@ -96,7 +96,7 @@ Each module is idempotent and writes to a shared `proj` library so steps can be 
 
 ---
 
-## 🧪 Tech Stack
+##  Tech Stack
 
 | Layer | Tools |
 |---|---|
@@ -108,7 +108,7 @@ Each module is idempotent and writes to a shared `proj` library so steps can be 
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 ```
 apple-10k-sentiment-event-study/
@@ -147,7 +147,7 @@ apple-10k-sentiment-event-study/
 
 ---
 
-## ▶️ How to Reproduce
+##  How to Reproduce
 
 1. **Access**: an active **WRDS** account with CRSP + IBES subscriptions, and a SAS 9.4 / SAS Studio environment.
 2. **Library**: create a permanent library `libname proj "~/apple_sentiment_project";` (each module references this).
@@ -156,7 +156,7 @@ apple-10k-sentiment-event-study/
 
 ---
 
-## ⚠️ Limitations & Honest Framing
+## Limitations & Honest Framing
 
 - **N = 15 filings.** A single-firm time series. Any conclusion (significant or null) is fragile and the standard errors are wide.
 - **No hard-vs-soft *negative-word* split.** This study models *one* aggregate negative-sentiment variable (`neg_pct`). The "hard vs soft" distinction in the headline refers to **hard information (earnings surprise) vs soft information (10-K tone)** — not to a severity split inside the LM negative list. Splitting negative words into e.g. *litigious + constraining* (hard) vs *remaining negatives* (soft) would be a natural extension.
@@ -165,7 +165,7 @@ apple-10k-sentiment-event-study/
 
 ---
 
-## 👤 Author
+##  Author
 
 **Feroz Obaid Khan** — McGill MMA, ACCT 626 (Data Analytics in Accounting), Winter 2026.
 Team: Chloee, Feroz, Hank, Henry.
